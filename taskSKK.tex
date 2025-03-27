@@ -1,0 +1,12 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\begin{document}
+\noindent$S K K = (\lambda x.\lambda y.\lambda z.(x\ z)\ (y\ z)) \ (\lambda x.\lambda y.x) \ (\lambda x.\lambda y.x) = \\
+(\lambda y.\lambda z.((\lambda x.\lambda y.x)\ z)\ (y\ z)) \ (\lambda x.\lambda y.x) = \\
+(\lambda z.((\lambda x.\lambda y.x)\ z)\ ((\lambda x.\lambda y.x)\ z)) = \\
+(\lambda z.(\lambda y.z)\ (\lambda y.z)) = \\
+(\lambda z.(\lambda y.z)\ (\lambda y.z)) = (\lambda z.z) = I$
+\end{document}
