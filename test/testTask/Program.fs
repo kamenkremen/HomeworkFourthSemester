@@ -1,14 +1,18 @@
 ﻿module Test
 // First task
+
+/// Sequence of natural numbers, but even numbers is negative
 let signSequence() = 
     let ones = Seq.initInfinite (fun index -> 1 - 2 * (index % 2))
     Seq.map2 (*) (Seq.initInfinite ((+) 1)) ones
 
 // Second task
+
 type Tree<'a> = 
     | Leaf of 'a
     | Node of 'a * Tree<'a> * Tree<'a>
 
+/// Returns only values ​​for which the predicate is true
 let rec filterForTrees tree predicate =
     match tree with
     | Leaf x -> 
@@ -25,6 +29,7 @@ let rec filterForTrees tree predicate =
         leftValues @ current @ rightValues
 
 // Third task
+
 /// Priority queue
 type PriorityQueue<'a>() =
     /// Tuple with elements and priorities
