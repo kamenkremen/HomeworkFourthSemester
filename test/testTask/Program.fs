@@ -1,13 +1,13 @@
 ﻿module Test
 // First task
-let numbersSequence() = 
+let signSequence() = 
     let ones = Seq.initInfinite (fun index -> 1 - 2 * (index % 2))
     Seq.map2 (*) (Seq.initInfinite ((+) 1)) ones
 
 // Second task
 type Tree<'a> = 
     | Leaf of 'a
-    | Node of Tree<'a> * Tree<'a>
+    | Node of 'a * Tree<'a> * Tree<'a>
 
 let rec filterForTrees tree predicate =
     match tree with
@@ -15,12 +15,17 @@ let rec filterForTrees tree predicate =
         match (predicate x) with
         | true -> [x]
         | false -> []
-    | Node (left, right) -> 
+    | Node (value, left, right) -> 
         let leftValues = filterForTrees left predicate
+        let current = 
+            match predicate value with
+            | true -> [value]
+            | false -> []
         let rightValues = filterForTrees right predicate
-        leftValues @ rightValues
+        leftValues @ current @ rightValues
 
 // Third task
+/// Priority queue
 type PriorityQueue<'a>() =
     /// Tuple with elements and priorities
     let mutable elements: ('a * int) list = []
