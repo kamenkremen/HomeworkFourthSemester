@@ -7,7 +7,7 @@ let signSequence() =
     Seq.map2 (*) (Seq.initInfinite ((+) 1)) ones
 
 // Second task
-
+/// Test
 type Tree<'a> = 
     | Leaf of 'a
     | Node of 'a * Tree<'a> * Tree<'a>
@@ -16,7 +16,7 @@ type Tree<'a> =
 let rec filterForTrees tree predicate =
     match tree with
     | Leaf x -> 
-        match (predicate x) with
+        match predicate x with
         | true -> [x]
         | false -> []
     | Node (value, left, right) -> 
@@ -50,7 +50,7 @@ type PriorityQueue<'a>() =
     /// Dequeue priority queue. Throws System.InvalidOperationException if empty 
     member this.Dequeue(): 'a =
         match elements with
-        | [] -> raise (System.InvalidOperationException("Queue is empty"))
+        | [] -> raise (System.InvalidOperationException "Queue is empty")
         | (head, _) :: tail ->
             elements <- tail
             head

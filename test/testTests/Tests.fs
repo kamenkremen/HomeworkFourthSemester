@@ -13,12 +13,15 @@ module FilterTreeTests =
     let sampleTree = 
         Node(4, Node(2, Leaf 1, Leaf 3), Node(6, Leaf 5, Leaf 7))
     
-
     [<Test>]
-    let ``Filter for tree should work correctly with parity predicate`` () =
+    let ``filterForTrees should work correctly with parity predicate`` () =
         filterForTrees sampleTree (fun x -> x % 2 = 0)
         |> should equal [2; 4; 6]
 
+    [<Test>]
+    let ``filterForTrees should work correctly with always false predicate`` () =
+        filterForTrees sampleTree (fun x -> false)
+        |> should be Empty
 
 module PriorityQueueTests =
     [<Test>]
