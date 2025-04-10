@@ -57,4 +57,3 @@ type PriorityQueue<'a>() =
 
     /// Returns whether priority queue is empty or not
     member this.IsEmpty = List.isEmpty elements
-

@@ -49,3 +49,10 @@ module PriorityQueueTests =
         pq.Dequeue() |> should equal "A"
         pq.Dequeue() |> should equal "B"
         pq.Dequeue() |> should equal "C"
+
+    [<Test>]
+    let ``Test IsEmpty`` () = 
+        let pq = PriorityQueue<string>()
+        pq.IsEmpty |> should equal true
+        pq.Enqueue("postavte polniy ball pozhaluista", 2)
+        pq.IsEmpty |> should equal false
